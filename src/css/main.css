@@ -23,7 +23,7 @@
 
 * {
     font-family: 'Montserrat', sans-serif;
-    /* color: #ffffff; */
+    color: #333;
     font-size: 14px;
     /*overflow: hidden;*/
 }
@@ -114,8 +114,7 @@
 .svgicon {
     width: 5rem;
     height: 5rem;
-    margin: 1rem 2rem;
-
+    margin: 1rem 0.7rem 1rem 1rem;
     opacity: 0;
     /*animation: jello-horizontal 0.9s forwards;*/
     animation: 
@@ -126,8 +125,7 @@
 .svgiconUsername{
     font-weight:700;
     font-size: 3em;
-    margin: 1.5rem 0;
-    
+    margin: 1.6rem 1rem 1.5rem 0.7rem;
     opacity: 0;
     animation: 
        focus-in-contract 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.7s forwards
@@ -339,27 +337,34 @@
 }
 /* Preview Panel */
 .widget-preview {
-    margin: 20px 50% 20px 50%;
+    /*margin: 20px 50% 20px 50%;
     padding: 115px 20px 20px 20px;
     height: 400px;
     min-width: 500px;
     background-image: url(../images/mac.mockup.01.png);
     background-size: contain;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat;*/
+    overflow: hidden;
 }
 
 .widget-preview > div {
+    border: solid 1px black;
+    border-radius: 1rem;
+    /* box-shadow: 0px 0px 5px black; */
+    /* padding-bottom: 4px; */
+    /* height: 277px; */
     display: flex;
 }
+
 
 /* source input text style: 
    https://codepen.io/atunnecliffe/pen/gpKzQw 
    from: https://freefrontend.com/css-input-text/
 */
-input,
-span,
-label,
-textarea {
+.text-username input,
+.text-username span,
+.text-username label,
+.text-username textarea {
   display: block;
   margin: 10px;
   padding: 5px;
@@ -367,12 +372,12 @@ textarea {
   font-size: 4rem;
 }
 
-input:focus {
+.text-username input:focus {
   outline: 0;
 }
 /* Question */
 
-input.inputcls {
+.text-username input.inputcls {
   font-size: 3rem;
   font-weight: 300;
   border-radius: 2px;
@@ -385,7 +390,7 @@ input.inputcls {
 }
 /* Underline and Placeholder */
 
-input.inputcls + label {
+.text-username input.inputcls + label {
   display: block;
   position: relative;
   white-space: nowrap;
@@ -398,31 +403,31 @@ input.inputcls + label {
   height: 0px;
 }
 
-input.inputcls:focus + label {
+.text-username input.inputcls:focus + label {
   width: 100%;
 }
 
-input.inputcls:focus,
-input.inputcls:valid {
+.text-username input.inputcls:focus,
+.text-username input.inputcls:valid {
   padding-top: 35px;
 }
 
-input.inputcls:focus + label > span,
-input.inputcls:valid + label > span {
+.text-username input.inputcls:focus + label > span,
+.text-username input.inputcls:valid + label > span {
   top: -100px;
   font-size: 1.25rem;
   color: #333;
 }
 
-input.inputcls:valid + label {
+.text-username input.inputcls:valid + label {
   border-color: green;
 }
 
-input.inputcls:invalid {
+.text-username input.inputcls:invalid {
   box-shadow: none;
 }
 
-input.inputcls + label > span {
+.text-username input.inputcls + label > span {
   font-weight: 300;
   margin: 0;
   position: absolute;
@@ -435,7 +440,7 @@ input.inputcls + label > span {
   transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
 }
 
-input[type="submit"] {
+.text-username input[type="submit"] {
   -webkit-transition: opacity 0.2s ease, background 0.2s ease;
   transition: opacity 0.2s ease, background 0.2s ease;
   display: block;
@@ -445,20 +450,20 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-input[type="submit"]:hover {
+.text-username input[type="submit"]:hover {
   background: #EEE;
 }
 
-input[type="submit"]:active {
+.text-username input[type="submit"]:active {
   background: #999;
 }
 
-input.inputcls:valid ~ input[type="submit"] {
+.text-username input.inputcls:valid ~ input[type="submit"] {
   -webkit-animation: appear 1s forwards;
   animation: appear 1s forwards;
 }
 
-input.inputcls:invalid ~ input[type="submit"] {
+.text-username input.inputcls:invalid ~ input[type="submit"] {
   display: none;
 }
 

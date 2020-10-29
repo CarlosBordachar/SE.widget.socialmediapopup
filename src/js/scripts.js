@@ -57,7 +57,7 @@ function loadButtons() {
 
     svgSocials.forEach(function(item, index, array) {
     let element = `
-       <div onclick="addSVGIcon('${item}')">Show<br><b>${item}</b></div>`;
+       <div class="button-showicon" onclick="addSVGIcon('${item}')">show<br><b>${item.toUpperCase()}</b></div>`;
 
        $('.manage-widget').append(element);
     });
@@ -65,11 +65,14 @@ function loadButtons() {
 
 function addSVGIcon(iconName) {
     totalEvents += 1;    
+    let usernameValue = $('#txtUsername').val() 
+    if (!usernameValue) usernameValue = "Nombre Usuario";
+    
     let element = `
     <svg class="svgicon svgicon-${iconName}" id="svgicon-${iconName}-${totalEvents}">
          <use xlink:href="#icon-${iconName}"></use>
     </svg>
-    <span class="svgiconUsername svgiconUsername-${iconName}" id="svgiconUsername-${iconName}-${totalEvents}">NombreUsuario</span>`;
+    <span class="svgiconUsername svgiconUsername-${iconName}" id="svgiconUsername-${iconName}-${totalEvents}">${usernameValue}</span>`;
     
     $('.main-container').empty();
     $('.main-container').append(element);

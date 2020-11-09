@@ -1,12 +1,9 @@
 let includeFollowers = true,
-    includeSubs = true/*,
-    includeRedemptions = true,
-    includeHosts = true,
-    includeRaids = true,
-    includeTips = true,
-    includeCheers = true*/;
+    includeSubs = true,
+    durationWithSleep = 26;
 
-let totalEvents = 0;
+let totalEvents = 0,
+    timerId;
 
 window.addEventListener('onEventReceived', function (obj) {
     if (!obj.detail.event) {
@@ -49,19 +46,51 @@ window.addEventListener('onEventReceived', function (obj) {
     }*/
 });
 
+window.addEventListener('onWidgetLoad', function (obj) {
+    addSocialBanner('twitter', durationWithSleep);
+});
 
-function loadButtons() {
-    let svgSocials = ['follow','sub','discord','facebook','instagram'
-        ,'messenger','tiktok','twitch','twitter','youtube','github'
-        ,'gmail','linkedin','skype','slack','telegram','whatsapp'];
+function addSocialBanner(iconName, sleep) {
 
-    svgSocials.forEach(function(item, index, array) {
-    let element = `
-       <div class="button-showicon" onclick="addSVGIcon('${item}')">show<br><b>${item.toUpperCase()}</b></div>`;
+    if(timerId) clearInterval(timerId);/*clearTimeout(timerId);*/
 
-       $('.manage-widget').append(element);
-    });
+    /*timerId = setInterval(addSVGIcon, sleep * 1000, iconName);*/
+    timerId = setInterval(addSVGIconsList, sleep * 1000, ['twitter', 'tiktok', 'twitch']);
+
+    /*timerId = setTimeout(function run() {
+      addSVGIcon(iconName);
+      timerId = setTimeout(run, sleep * 1000);
+    }, sleep * 1000);*/   
 }
+
+let timer2;
+async function addSVGIconsList(iconsNameList) {
+    let iconName;
+
+timer2 = setTimeout(addSVGIcon, 6000, 'twitter');
+await sleep(6000);
+timer2 = setTimeout(addSVGIcon, 6000, 'tiktok');
+await sleep(6000);
+timer2 = setTimeout(addSVGIcon, 6000, 'twitch');
+
+      /*timer2 = setTimeout(function run() {
+          if(timer2) clearTimeout(timer2);
+
+          iconName = iconsNameList.shift();
+          addSVGIcon(iconName);
+          iconsNameList.push(iconName);
+
+          timer2 = setTimeout(run, 6000);
+        }, 6000);*/
+}
+
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+
+
 
 function addSVGIcon(iconName) {
     totalEvents += 1;    
@@ -76,4 +105,19 @@ function addSVGIcon(iconName) {
     
     $('.main-container').empty();
     $('.main-container').append(element);
+}
+
+function fnOnLoad() {
+    let svgSocials = ['follow','sub','discord','facebook','instagram'
+        ,'messenger','tiktok','twitch','twitter','youtube','github'
+        ,'gmail','linkedin','skype','slack','telegram','whatsapp'];
+
+    svgSocials.forEach(function(item, index, array) {
+    let element = `
+       <div class="button-showicon" onclick="addSocialBanner('${item}', ${durationWithSleep})">show<br><b>${item.toUpperCase()}</b></div>`;
+
+       $('.manage-widget').append(element);
+    });
+
+    addSocialBanner('twitter', durationWithSleep);
 }

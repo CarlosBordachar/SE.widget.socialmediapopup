@@ -1,31 +1,39 @@
 :root {
+  --durationOnScreen: 5s;
+
+  --colorTextShadow: #778899; /*lightslategrey color*/
+  --colorText: #333333;
+
+  --shadowOffsetX: 0.1rem;
+  --shadowOffsetY: 0.1rem;
+  --shadowOffsetBlur: 0rem;
 
   --colorFollow: #1956c6;
   --colorSub: #673AB7;
 
   /* GAMER Socials */
   --colorDiscord: #7289da;
-  --colorFacebook, #1877f2;
-  --colorInstagram, #e4405f;
-  --colorTwitch, #6441a4;
-  --colorTwitter, #1da1f2;
-  --colorYoutube, #f00;
+  --colorFacebook: #1877f2;
+  --colorInstagram: #e4405f;
+  --colorTwitch: #6441a4;
+  --colorTwitter: #1da1f2;
+  --colorYoutube: #f00;
 
   /* FORMAL Socials*/
-  --colorMessenger, #00b2ff;
-  --colorGmail, #d14836;
-  --colorLinkedin, #0077b5;
-  --colorSkype, #00aff0;
-  --colorSlack, #4a154b;
-  --colorTelegram, #2ca5e0;
-  --colorWhatsapp, #25d366;
+  --colorMessenger: #00b2ff;
+  --colorGmail: #d14836;
+  --colorLinkedin: #0077b5;
+  --colorSkype: #00aff0;
+  --colorSlack: #4a154b;
+  --colorTelegram: #2ca5e0;
+  --colorWhatsapp: #25d366;
 }
 
 * {
     font-family: 'Montserrat', sans-serif;
-    color: #333;
+    color: var(--colorText);
     font-size: 14px;
-    /*overflow: hidden;*/
+    /* overflow: hidden; */
 }
 
 .main-container {
@@ -119,17 +127,23 @@
     /*animation: jello-horizontal 0.9s forwards;*/
     animation: 
        roll-in-left 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards
-      ,roll-out-left 0.6s ease-in 5s forwards;
+      ,roll-out-left 0.6s ease-in /*5s*/ forwards;
+    
+    animation-delay: 0s, var(--durationOnScreen);
 }
 
 .svgiconUsername{
-    font-weight:700;
-    font-size: 3em;
-    margin: 1.6rem 1rem 1.5rem 0.7rem;
+    font-weight: 700;
+    font-size: 3.5rem;
+    margin: 1.35rem 1rem 1.35rem 0.7rem;
+    color: var(--colorText);
+    text-shadow: var(--shadowOffsetX) var(--shadowOffsetY) var(--shadowOffsetBlur) var(--colorTextShadow);
     opacity: 0;
     animation: 
-       focus-in-contract 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.7s forwards
-      ,blur-out-expand 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) 4.3s forwards;
+       focus-in-contract 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) /*0.7s*/ forwards
+      ,blur-out-expand 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) /*4.3s*/ forwards;
+    
+    animation-delay: 0.7s, calc(var(--durationOnScreen) - 0.7s);
 }
 
 /* ----------------------------------------------
@@ -202,25 +216,7 @@
 
 /**
  * ----------------------------------------
- * animation roll-out-left
- * ----------------------------------------
- */
-@keyframes roll-out-left {
-  0% {
-    -webkit-transform: translateX(0) rotate(0deg);
-            transform: translateX(0) rotate(0deg);
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: translateX(-1000px) rotate(-540deg);
-            transform: translateX(-1000px) rotate(-540deg);
-    opacity: 0;
-  }
-}
-
-/**
- * ----------------------------------------
- * animation roll-in-left
+ * animation roll-in-left | IMG IN
  * ----------------------------------------
  */
 @keyframes roll-in-left {
@@ -238,7 +234,25 @@
 
 /**
  * ----------------------------------------
- * animation focus-in-contract
+ * animation roll-out-left | IMG OUT
+ * ----------------------------------------
+ */
+@keyframes roll-out-left {
+  0% {
+    -webkit-transform: translateX(0) rotate(0deg);
+            transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateX(-1000px) rotate(-540deg);
+            transform: translateX(-1000px) rotate(-540deg);
+    opacity: 0;
+  }
+}
+
+/**
+ * ----------------------------------------
+ * animation focus-in-contract | TEXT IN
  * ----------------------------------------
  */
 @keyframes focus-in-contract {
@@ -257,7 +271,7 @@
 
 /**
  * ----------------------------------------
- * animation blur-out-expand
+ * animation blur-out-expand | TEXT OUT
  * ----------------------------------------
  */
 @keyframes blur-out-expand {
@@ -299,8 +313,7 @@
 
 .manage-widget > .button-showicon {
     flex: 0 1 100px;
-    /*flex: auto;*/
-
+    /* flex: auto; */
     height: 40px;
     user-select: none;
     text-align: center;
@@ -308,7 +321,6 @@
     color: black;
     margin: 4px;
     padding: 10px;
-    
     border: solid 1px black;
     border-radius: 1rem;
     box-shadow: 0px 0px 5px black;

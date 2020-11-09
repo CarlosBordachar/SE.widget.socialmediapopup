@@ -1,2 +1,2 @@
-# SE.widget.socialbanner
-Widget for StreamElements. Displays social banner.
+# SE.widget.socialmediapopup
+Widget for StreamElements. Displays social media popup.

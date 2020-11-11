@@ -1,9 +1,7 @@
 let includeFollowers = true,
-    includeSubs = true,
-    durationWithSleep = 26;
+    includeSubs = true;
 
-let totalEvents = 0,
-    timerId;
+let totalSM = 0;
 
 window.addEventListener('onEventReceived', function (obj) {
     if (!obj.detail.event) {
@@ -47,77 +45,185 @@ window.addEventListener('onEventReceived', function (obj) {
 });
 
 window.addEventListener('onWidgetLoad', function (obj) {
-    addSocialBanner('twitter', durationWithSleep);
+    loadWidget();
 });
 
-function addSocialBanner(iconName, sleep) {
+function getParameters() {
+    var result = 
+    {
+        durationAnimSeg: 6
+        , durationSleepSeg: 1
+        , items: [
+             { icon: "twitter",   active: true, group: 1, order: 1, username: "@MyTwitterName" }
+            ,{ icon: "youtube",   active: true, group: 1, order: 2, username: "/MyYoutubeChannel" }
+            ,{ icon: "instagram", active: true, group: 1, order: 3, username: "@MyInstagramName" }
 
-    if(timerId) clearInterval(timerId);/*clearTimeout(timerId);*/
+            ,{ icon: "twitch",    active: true, group: 2, order: 1, username: "/MyTwitchName" }
+            ,{ icon: "tiktok",    active: true, group: 2, order: 2, username: "@MyTiktokName" }
+            ,{ icon: "discord",   active: true, group: 2, order: 3, username: "@MyDiscordServer" }
 
-    /*timerId = setInterval(addSVGIcon, sleep * 1000, iconName);*/
-    timerId = setInterval(addSVGIconsList, sleep * 1000, ['twitter', 'tiktok', 'twitch']);
+            ,{ icon: "facebook",  active: false, group: 3, order: 1, username: "MyFacebookName" }
+            ,{ icon: "messenger", active: false, group: 3, order: 2, username: "MyMessengerName" }
+            
+            ,{ icon: "gmail",     active: true, group: 4, order: 1, username: "MyMail@Gmail.com" }
+            ,{ icon: "skype",     active: true, group: 4, order: 2, username: "MySkypeName" }
 
-    /*timerId = setTimeout(function run() {
-      addSVGIcon(iconName);
-      timerId = setTimeout(run, sleep * 1000);
-    }, sleep * 1000);*/   
+            ,{ icon: "linkedin",  active: true, group: 5, order: 1, username: "MyLinkedinName" }
+            ,{ icon: "github",    active: true, group: 5, order: 2, username: "@MyGithubName" }
+            ,{ icon: "slack",     active: true, group: 5, order: 3, username: "MySlackName" }
+            
+            ,{ icon: "telegram",  active: true, group: 6, order: 1, username: "@MyTelegramName" }
+            ,{ icon: "whatsapp",  active: true, group: 6, order: 2, username: "(+My)-Whatsapp-Phone" }
+            
+            ,{ icon: "follow",    active: false, group: 7, order: 1, username: "Followers ###" }
+            ,{ icon: "sub",       active: false, group: 7, order: 2, username: "Subs ###" }]
+    };
+
+    return result;
 }
 
-let timer2;
-async function addSVGIconsList(iconsNameList) {
-    let iconName;
+class SocialWorker {
+    constructor(){
+        // https://stackoverflow.com/a/42239212
+        // https://stackoverflow.com/a/57774483
+        this.doWorkAsync = this.doWorkAsync.bind(this);
+    }
 
-timer2 = setTimeout(addSVGIcon, 6000, 'twitter');
-await sleep(6000);
-timer2 = setTimeout(addSVGIcon, 6000, 'tiktok');
-await sleep(6000);
-timer2 = setTimeout(addSVGIcon, 6000, 'twitch');
+    configure(parameters) {
+        this.parameters = parameters;
+    }
 
-      /*timer2 = setTimeout(function run() {
-          if(timer2) clearTimeout(timer2);
+    doWork() {
+        this.socialsToAdd = this.getSocialsToAdd(this.parameters.items);
+        let distinctGroups = this.getDistinctGroups(this.socialsToAdd);
 
-          iconName = iconsNameList.shift();
-          addSVGIcon(iconName);
-          iconsNameList.push(iconName);
+        let busyTime = this.parameters.durationAnimSeg * distinctGroups.length;
+        setInterval(this.doWorkAsync, (busyTime + this.parameters.durationSleepSeg) * 1000);
+    }
 
-          timer2 = setTimeout(run, 6000);
-        }, 6000);*/
+     async doWorkAsync() {
+        let distinctGroups = this.getDistinctGroups(this.socialsToAdd);
+
+        let group;
+        while(group = distinctGroups.shift()) {
+            let elementsList = [];
+            let socialsByGroup = this.socialsToAdd.filter(function(item) {
+                return item.group == group;
+            });
+
+            socialsByGroup.forEach(function(item, index, array) {
+                if(item && item.active) {
+                    let sm = getSMHTMLElement(item);
+                    elementsList.push(sm);
+                }
+            });
+
+            // Add to page
+            $('.main-container').empty();
+            $('.main-container').append(elementsList);
+
+            await sleep(this.parameters.durationAnimSeg * 1000);
+        }
+    }
+
+    getSocialsToAdd(socialItems) {
+        // Select active items. and order them by Group and then by Order.
+        let resultList = socialItems
+            .filter(function(item) { return item.active; })
+            .sort(function(a,b){
+                let result = 0;
+
+                // Order from min to max
+                if (a.group > b.group) {
+                    return 1;
+                } else if (a.group < b.group) { 
+                    return -1;
+                }
+
+                // Else go to the 2nd item
+                if (a.order < b.order) { 
+                    return -1;
+                } else if (a.order > b.order) {
+                    return 1
+                } else { // nothing to split them
+                    return 0;
+                }
+            });
+
+        return resultList;
+    }
+
+    getDistinctGroups(socialItems) {
+        // Select all groups
+        let result = socialItems.map(function(item){
+            return item.group;
+        });
+
+        // Do Disctinct
+        result = [...new Set(result)];
+
+        return result;
+    }
 }
 
+function loadWidget() {
+    /*https://css-tricks.com/restart-css-animation/*/
 
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+    let parameters = getParameters();
+
+    let worker = new SocialWorker();
+    
+    worker.configure(parameters);
+
+    worker.doWork();
 }
 
-
-
-
-function addSVGIcon(iconName) {
-    totalEvents += 1;    
-    let usernameValue = $('#txtUsername').val() 
-    if (!usernameValue) usernameValue = "Nombre Usuario";
+function getSMHTMLElement(smItem) {
+    totalSM += 1;    
     
     let element = `
-    <svg class="svgicon svgicon-${iconName}" id="svgicon-${iconName}-${totalEvents}">
-         <use xlink:href="#icon-${iconName}"></use>
+    <svg class="svgicon svgicon-${smItem.icon}" id="svgicon-${smItem.icon}-${totalSM}">
+         <use xlink:href="#icon-${smItem.icon}"></use>
     </svg>
-    <span class="svgiconUsername svgiconUsername-${iconName}" id="svgiconUsername-${iconName}-${totalEvents}">${usernameValue}</span>`;
-    
-    $('.main-container').empty();
-    $('.main-container').append(element);
+    <span class="svgiconUsername svgiconUsername-${smItem.icon}" id="svgiconUsername-${smItem.icon}-${totalSM}">${smItem.username}</span>`;
+
+    return element;
 }
 
+/// SLEEP
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+
+
+///*** Functions only for test page ***///
 function fnOnLoad() {
     let svgSocials = ['follow','sub','discord','facebook','instagram'
         ,'messenger','tiktok','twitch','twitter','youtube','github'
-        ,'gmail','linkedin','skype','slack','telegram','whatsapp'];
+        ,'gmail','linkedin','skype','slack','telegram','telegram-old','whatsapp'];
 
     svgSocials.forEach(function(item, index, array) {
     let element = `
-       <div class="button-showicon" onclick="addSocialBanner('${item}', ${durationWithSleep})">show<br><b>${item.toUpperCase()}</b></div>`;
+       <div class="button-showicon" onclick="addSVGIcon('${item}')">show<br><b>${item.toUpperCase()}</b></div>`;
 
        $('.manage-widget').append(element);
     });
 
-    addSocialBanner('twitter', durationWithSleep);
+    loadWidget();
+}
+
+function addSVGIcon(iconName) {
+    totalSM += 1;    
+    let usernameValue = $('#txtUsername').val() 
+    if (!usernameValue) usernameValue = "Nombre Usuario";
+    
+    let element = `
+    <svg class="svgicon svgicon-${iconName}" id="svgicon-${iconName}-${totalSM}">
+         <use xlink:href="#icon-${iconName}"></use>
+    </svg>
+    <span class="svgiconUsername svgiconUsername-${iconName}" id="svgiconUsername-${iconName}-${totalSM}">${usernameValue}</span>`;
+    
+    $('.main-container').empty();
+    $('.main-container').append(element);
 }

@@ -181,11 +181,14 @@ function loadWidget() {
 function getSMHTMLElement(smItem) {
     totalSM += 1;    
     
+    
     let element = `
-    <svg class="svgicon svgicon-${smItem.icon}" id="svgicon-${smItem.icon}-${totalSM}">
-         <use xlink:href="#icon-${smItem.icon}"></use>
-    </svg>
-    <span class="svgiconUsername svgiconUsername-${smItem.icon}" id="svgiconUsername-${smItem.icon}-${totalSM}">${smItem.username}</span>`;
+    <div class="svgiconHolder svgiconHolder-${smItem.icon}" id="svgiconHolder-${smItem.icon}-${totalSM}">
+        <svg class="svgicon svgicon-${smItem.icon}" id="svgicon-${smItem.icon}-${totalSM}">
+             <use xlink:href="#icon-${smItem.icon}"></use>
+        </svg>
+        <span class="svgiconUsername svgiconUsername-${smItem.icon}" id="svgiconUsername-${smItem.icon}-${totalSM}">${smItem.username}</span>
+    </div>`;
 
     return element;
 }
@@ -219,10 +222,12 @@ function addSVGIcon(iconName) {
     if (!usernameValue) usernameValue = "Nombre Usuario";
     
     let element = `
-    <svg class="svgicon svgicon-${iconName}" id="svgicon-${iconName}-${totalSM}">
-         <use xlink:href="#icon-${iconName}"></use>
-    </svg>
-    <span class="svgiconUsername svgiconUsername-${iconName}" id="svgiconUsername-${iconName}-${totalSM}">${usernameValue}</span>`;
+    <div class="svgiconHolder svgiconHolder-${iconName}" id="svgiconHolder-${iconName}-${totalSM}">
+        <svg class="svgicon svgicon-${iconName}" id="svgicon-${iconName}-${totalSM}">
+            <use xlink:href="#icon-${iconName}"></use>
+        </svg>
+        <span class="svgiconUsername svgiconUsername-${iconName}" id="svgiconUsername-${iconName}-${totalSM}">${usernameValue}</span>
+    </div>`;
     
     $('.main-container').empty();
     $('.main-container').append(element);

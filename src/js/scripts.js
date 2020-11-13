@@ -51,7 +51,7 @@ window.addEventListener('onWidgetLoad', function (obj) {
 function getParameters() {
     var result = 
     {
-        durationAnimSeg: 6
+        durationAnimSeg: 196
         , durationSleepSeg: 1
         , items: [
              { icon: "twitter",   active: true, group: 1, order: 1, username: "@MyTwitterName" }
@@ -204,7 +204,11 @@ function sleep(ms) {
 function fnOnLoad() {
     let svgSocials = ['follow','sub','discord','facebook','instagram'
         ,'messenger','tiktok','twitch','twitter','youtube','github'
-        ,'gmail','linkedin','skype','slack','telegram','telegram-old','whatsapp'];
+        ,'gmail','gmail-old','gmail-old-light','linkedin','skype','slack','telegram','telegram-old','whatsapp'
+        ,'fiverr','brave','googlechrome','googlehangouts','googledrive','microsoftedge','internetexplorer'
+        ,'mozillafirefox','opera','safari','sphere','earth','link','new-tab'];
+
+
 
     svgSocials.forEach(function(item, index, array) {
     let element = `

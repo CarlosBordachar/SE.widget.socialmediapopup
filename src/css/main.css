@@ -22,18 +22,36 @@
   --colorDiscord: #7289da;
   --colorFacebook: #1877f2;
   /*--colorInstagram: #e4405f;*/
+  --colorTiktok: #000000;
   --colorTwitch: #6441a4;
   --colorTwitter: #1da1f2;
   --colorYoutube: #f00;
 
   /* FORMAL Socials*/
-  --colorMessenger: #00b2ff;
+  --colorGithub: #000000;
   --colorGmail: #d14836;
   --colorLinkedin: #0077b5;
+  --colorMessenger: #00b2ff;
   --colorSkype: #00aff0;
   --colorSlack: #4a154b;
   --colorTelegram: #2ca5e0;
   --colorWhatsapp: #25d366;
+
+  /* BROWSERS */
+  --colorFiverr, #1dbf73;
+  --colorBrave, #fb542b;
+  --colorGoogleChrome, #4285f4;
+  --colorGoogleHangouts, #0c9d58;
+  --colorGoogleDrive, #4285f4;
+  --colorMicrosoftEdge, #0078d7;
+  --colorInternetExplorer, #0076d6;
+  --colorMozillaFirefox, #ff7139;
+  --colorOpera, #ff1b2d;
+  --colorSafari, #000000;
+  --colorSphere, #000000;
+  --colorEarth, #000000;
+  --colorLink, #000000;
+  --colorNew-Tab, #000000;
 }
 
 * {
@@ -74,6 +92,7 @@
 }
 
 .path-tiktok {
+  fill: var(--colorTiktok, #000000);
 }
 
 .path-twitch {
@@ -91,9 +110,10 @@
 
 /* FORMAL Socials */
 .path-github {
+    fill: var(--colorGithub, #000000);
 }
 
-.path-gmail {
+.path-gmail-old {
     fill: var(--colorGmail, #d14836);
 }
 
@@ -122,6 +142,62 @@
     fill: var(--colorWhatsapp, #25d366);
 }
 
+/* BROWSERS */
+.path-fiverr { 
+    fill: var(--colorFiverr, #1dbf73); 
+}
+
+.path-brave {  
+    fill: var(--colorBrave, #fb542b); 
+}
+
+.path-googlechrome {  
+    fill: var(--colorGoogleChrome, #4285f4); 
+}
+
+.path-googlehangouts {  
+    fill: var(--colorGoogleHangouts, #0c9d58); 
+}
+
+.path-googledrive {  
+    fill: var(--colorGoogleDrive, #4285f4); 
+}
+
+.path-microsoftedge {  
+    fill: var(--colorMicrosoftEdge, #0078d7); 
+}
+
+.path-internetexplorer {  
+    fill: var(--colorInternetExplorer, #0076d6); 
+}
+
+.path-mozillafirefox {  
+    fill: var(--colorMozillaFirefox, #ff7139); 
+}
+
+.path-opera {  
+    fill: var(--colorOpera, #ff1b2d); 
+}
+
+.path-safari {  
+    fill: var(--colorSafari, #000000); 
+}
+
+.path-sphere {  
+    fill: var(--colorSphere, #000000); 
+}
+
+.path-earth {  
+    fill: var(--colorEarth, #000000); 
+}
+
+.path-link {  
+    fill: var(--colorLink, #000000); 
+}
+
+.path-new-tab {  
+    fill: var(--colorNew-Tab, #000000); 
+}
 
 /*.svgicon {
     width: 100%;
@@ -145,20 +221,19 @@
 .svgicon {
     width: 5rem;
     height: 5rem;
-    margin: 1rem 0.7rem 1rem 1rem;
+    margin: 1rem 1rem 1rem 1rem;
     opacity: 0;
     /*animation: jello-horizontal 0.9s forwards;*/
     animation: 
        var(--animationIconIN) 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards
       ,var(--animationIconOUT) 0.6s ease-in /*5s*/ forwards;
-    
     animation-delay: 0s, var(--durationOnScreen);
 }
 
 .svgiconUsername {
     font-weight: 700;
     font-size: 3.5rem;
-    margin: 0.75rem 1rem 1rem 0.7rem;
+    margin: 0.75rem 1rem 1rem 1rem;
     color: var(--colorText);
     text-shadow: var(--shadowOffsetX) var(--shadowOffsetY) var(--shadowOffsetBlur) var(--colorTextShadow);
     opacity: 0;

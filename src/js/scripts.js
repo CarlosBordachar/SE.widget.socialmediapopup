@@ -51,7 +51,7 @@ window.addEventListener('onWidgetLoad', function (obj) {
 function getParameters() {
     var result = 
     {
-        durationAnimSeg: 196
+        durationAnimSeg: 20/*196*/
         , durationSleepSeg: 1
         , items: [
              { icon: "twitter",   active: true, group: 1, order: 1, username: "@MyTwitterName" }
@@ -206,7 +206,8 @@ function fnOnLoad() {
         ,'messenger','tiktok','twitch','twitter','youtube','github'
         ,'gmail','gmail-old','gmail-old-light','linkedin','skype','slack','telegram','telegram-old','whatsapp'
         ,'fiverr','brave','googlechrome','googlehangouts','googledrive','microsoftedge','internetexplorer'
-        ,'mozillafirefox','opera','safari','sphere','earth','link','new-tab'];
+        ,'mozillafirefox','opera','safari','sphere','earth','link','new-tab'
+        ,'user','user-o','user-circle','user-circle-o','user2','user3','user4','user5'];
 
 
 
@@ -236,3 +237,6 @@ function addSVGIcon(iconName) {
     $('.main-container').empty();
     $('.main-container').append(element);
 }
+
+
+

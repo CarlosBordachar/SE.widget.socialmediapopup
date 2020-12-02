@@ -1,5 +1,5 @@
 :root {
-  --durationOnScreen: 5s;
+  --durationOnScreen: 995s;
 
   --fontSize: 14px;
   
@@ -38,20 +38,29 @@
   --colorWhatsapp: #25d366;
 
   /* BROWSERS */
-  --colorFiverr, #1dbf73;
-  --colorBrave, #fb542b;
-  --colorGoogleChrome, #4285f4;
-  --colorGoogleHangouts, #0c9d58;
-  --colorGoogleDrive, #4285f4;
-  --colorMicrosoftEdge, #0078d7;
-  --colorInternetExplorer, #0076d6;
-  --colorMozillaFirefox, #ff7139;
-  --colorOpera, #ff1b2d;
-  --colorSafari, #000000;
-  --colorSphere, #000000;
-  --colorEarth, #000000;
-  --colorLink, #000000;
-  --colorNew-Tab, #000000;
+  --colorFiverr: #1dbf73;
+  --colorBrave: #fb542b;
+  --colorGoogleChrome: #4285f4;
+  --colorGoogleHangouts: #0c9d58;
+  --colorGoogleDrive: #4285f4;
+  --colorMicrosoftEdge: #0078d7;
+  --colorInternetExplorer: #0076d6;
+  --colorMozillaFirefox: #ff7139;
+  --colorOpera: #ff1b2d;
+  --colorSafari: #333333;
+  --colorSphere: #333333;
+  --colorEarth: #333333;
+  --colorLink: #333333;
+  --colorNew-Tab: #333333;
+
+  --colorUser: #333333;
+  --colorUser-o: #333333;
+  --colorUser-circle: #333333;
+  --colorUser-circle-o: #333333;
+  --colorUser2: #333333;
+  --colorUser3: #333333;
+  --colorUser4: #333333;
+  --colorUser5: #333333;
 }
 
 * {
@@ -199,6 +208,32 @@
     fill: var(--colorNew-Tab, #000000); 
 }
 
+
+.path-user {  
+    fill: var(--colorUser, #000000);
+}
+.path-user-o {  
+    fill: var(--colorUser-o, #000000);
+}
+.path-user-circle {  
+    fill: var(--colorUser-circle, #000000);
+}
+.path-user-circle-o {  
+    fill: var(--colorUser-circle-o, #000000);
+}
+.path-user2 {  
+    fill: var(--colorUser2, #000000);
+}
+.path-user3 {  
+    fill: var(--colorUser3, #000000);
+}
+.path-user4 {  
+    fill: var(--colorUser4, #000000);
+}
+.path-user5 {  
+    fill: var(--colorUser5, #000000);
+}
+
 /*.svgicon {
     width: 100%;
     height: 100%;
@@ -233,7 +268,7 @@
 .svgiconUsername {
     font-weight: 700;
     font-size: 3.5rem;
-    margin: 0.75rem 1rem 1rem 1rem;
+    margin: 1rem 1rem 1rem 1rem;
     color: var(--colorText);
     text-shadow: var(--shadowOffsetX) var(--shadowOffsetY) var(--shadowOffsetBlur) var(--colorTextShadow);
     opacity: 0;

@@ -51,10 +51,11 @@ window.addEventListener('onWidgetLoad', function (obj) {
 function getParameters() {
     var result = 
     {
-        durationAnimSeg: 20/*196*/
-        , durationSleepSeg: 1
+          animationSeg: 206 /* 1 second more than --durationOnScreen */
+        , delayBtwGroups: 2
+        , delayCycle: 4
         , items: [
-             { icon: "twitter",   active: true, group: 1, order: 1, username: "@MyTwitterName" }
+             { icon: "twitter",   active: false, group: 1, order: 1, username: "@MyTwitterName" }
             ,{ icon: "youtube",   active: true, group: 1, order: 2, username: "/MyYoutubeChannel" }
             ,{ icon: "instagram", active: true, group: 1, order: 3, username: "@MyInstagramName" }
 
@@ -65,7 +66,7 @@ function getParameters() {
             ,{ icon: "facebook",  active: false, group: 3, order: 1, username: "MyFacebookName" }
             ,{ icon: "messenger", active: false, group: 3, order: 2, username: "MyMessengerName" }
             
-            ,{ icon: "gmail",     active: true, group: 4, order: 1, username: "MyMail@Gmail.com" }
+            ,{ icon: "gmail",     active: true, group: 4, order: 1, username: "MyMail@gmail.com" }
             ,{ icon: "skype",     active: true, group: 4, order: 2, username: "MySkypeName" }
 
             ,{ icon: "linkedin",  active: true, group: 5, order: 1, username: "MyLinkedinName" }
@@ -97,8 +98,9 @@ class SocialWorker {
         this.socialsToAdd = this.getSocialsToAdd(this.parameters.items);
         let distinctGroups = this.getDistinctGroups(this.socialsToAdd);
 
-        let busyTime = this.parameters.durationAnimSeg * distinctGroups.length;
-        setInterval(this.doWorkAsync, (busyTime + this.parameters.durationSleepSeg) * 1000);
+        let busyTimeGroup = this.parameters.animationSeg + this.parameters.delayBtwGroups;
+        let busyTimeTotal = busyTimeGroup * distinctGroups.length;
+        setInterval(this.doWorkAsync, (busyTimeTotal + this.parameters.delayCycle) * 1000);
     }
 
      async doWorkAsync() {
@@ -122,7 +124,7 @@ class SocialWorker {
             $('.main-container').empty();
             $('.main-container').append(elementsList);
 
-            await sleep(this.parameters.durationAnimSeg * 1000);
+            await sleep((this.parameters.animationSeg + this.parameters.delayBtwGroups) * 1000);
         }
     }
 
@@ -203,11 +205,12 @@ function sleep(ms) {
 ///*** Functions only for test page ***///
 function fnOnLoad() {
     let svgSocials = ['follow','sub','discord','facebook','instagram'
-        ,'messenger','tiktok','twitch','twitter','youtube','github'
+        ,'messenger','tiktok','twitch','twitter','youtube','github','fiverr'
         ,'gmail','gmail-old','gmail-old-light','linkedin','skype','slack','telegram','telegram-old','whatsapp'
-        ,'fiverr','brave','googlechrome','googlehangouts','googledrive','microsoftedge','internetexplorer'
-        ,'mozillafirefox','opera','safari','sphere','earth','link','new-tab'
-        ,'user','user-o','user-circle','user-circle-o','user2','user3','user4','user5'];
+        ,'brave','googlechrome','googlehangouts','googledrive','microsoftedge','internetexplorer'
+        ,'mozillafirefox','opera','safari'
+        ,'user','user-o','user-circle','user-circle-o','user2','user3','user4','user5'
+        ,'sphere','earth','link','new-tab'];
 
 
 

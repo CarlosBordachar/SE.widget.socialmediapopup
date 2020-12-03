@@ -1,14 +1,18 @@
 :root {
-  --durationOnScreen: 5s;
+  --durationOnScreen: 205s;
 
+  --colorText: #333333;
   --fontSize: 14px;
   
   --colorTextShadow: #778899; /*lightslategrey color*/
-  --colorText: #333333;
-
   --shadowOffsetX: 0.1rem;
   --shadowOffsetY: 0.1rem;
   --shadowOffsetBlur: 0rem;
+
+  --spaceBtwSM: 6rem;
+
+  --bgColor1: #ffffff1a;
+  --bgColor2: #ece9e666;
 
   --animationIconIN: roll-in-bottom;
   --animationIconOUT: roll-out-bottom;
@@ -29,6 +33,7 @@
   --colorYoutube: #f00;
 
   /* FORMAL Socials*/
+  --colorFiverr: #1dbf73;
   --colorGithub: #000000;
   --colorGmail: #d14836;
   --colorLinkedin: #0077b5;
@@ -39,7 +44,6 @@
   --colorWhatsapp: #25d366;
 
   /* BROWSERS */
-  --colorFiverr: #1dbf73;
   --colorBrave: #fb542b;
   --colorGoogleChrome: #4285f4;
   --colorGoogleHangouts: #0c9d58;
@@ -49,11 +53,8 @@
   --colorMozillaFirefox: #ff7139;
   --colorOpera: #ff1b2d;
   --colorSafari: #333333;
-  --colorSphere: #333333;
-  --colorEarth: #333333;
-  --colorLink: #333333;
-  --colorNew-Tab: #333333;
 
+  /* PROFILES */
   --colorUser: #333333;
   --colorUser-o: #333333;
   --colorUser-circle: #333333;
@@ -62,6 +63,13 @@
   --colorUser3: #333333;
   --colorUser4: #333333;
   --colorUser5: #333333;
+
+  /* COMMON */
+  --colorSphere: #333333;
+  --colorEarth: #333333;
+  --colorLink: #333333;
+  --colorNew-Tab: #333333;
+
 }
 
 * {
@@ -119,6 +127,10 @@
 
 
 /* FORMAL Socials */
+.path-fiverr { 
+    fill: var(--colorFiverr, #1dbf73); 
+}
+
 .path-github {
     fill: var(--colorGithub, #000000);
 }
@@ -152,11 +164,8 @@
     fill: var(--colorWhatsapp, #25d366);
 }
 
-/* BROWSERS */
-.path-fiverr { 
-    fill: var(--colorFiverr, #1dbf73); 
-}
 
+/* BROWSERS */
 .path-brave {  
     fill: var(--colorBrave, #fb542b); 
 }
@@ -193,23 +202,7 @@
     fill: var(--colorSafari, #000000); 
 }
 
-.path-sphere {  
-    fill: var(--colorSphere, #000000); 
-}
-
-.path-earth {  
-    fill: var(--colorEarth, #000000); 
-}
-
-.path-link {  
-    fill: var(--colorLink, #000000); 
-}
-
-.path-new-tab {  
-    fill: var(--colorNew-Tab, #000000); 
-}
-
-
+/* PROFILES */
 .path-user {  
     fill: var(--colorUser, #000000);
 }
@@ -235,6 +228,26 @@
     fill: var(--colorUser5, #000000);
 }
 
+
+/* COMMON */
+.path-sphere {  
+    fill: var(--colorSphere, #000000); 
+}
+
+.path-earth {  
+    fill: var(--colorEarth, #000000); 
+}
+
+.path-link {  
+    fill: var(--colorLink, #000000); 
+}
+
+.path-new-tab {  
+    fill: var(--colorNew-Tab, #000000); 
+}
+
+
+
 /*.svgicon {
     width: 100%;
     height: 100%;
@@ -244,7 +257,9 @@
 }*/
 
 .svgiconHolder {
-    margin: 1rem 3rem 1rem 3rem;
+    margin: 1rem var(--spaceBtwSM) 1rem var(--spaceBtwSM);
+    background: linear-gradient(to bottom, var(--bgColor1), var(--bgColor2)); /* https://uigradients.com/#Clouds */
+    border-radius: 1rem;
     display: flex;
     /* flex-wrap: wrap; */
     justify-content: center;

@@ -12,11 +12,11 @@
   "shadowBlur": {"type": "text","label": "Shadow blur","value": "0rem","group": "Typography"},
 
   "marginSM": {"type": "text","label": "Margin (Top Right Bottom Left)","value": "1rem 2vw 1rem 2vw","group": "Display SM"},
-  "directionSM": {"type": "dropdown","label": "Direction","value": "row","options": {"row": "Row", "column": "Column"},"group": "Display"},
-  "alignitemsSM": {"type": "dropdown","label": "Align","value": "center","options": {"center": "Center", "flex-start": "Left (in Column, Top in Row)", "flex-end": "Right (in Column, Bottom in Row)"},"group": "Display"},
-  "iconUserAlign": {"type": "dropdown","label": "Align Icon","value": "row","options": {"row": "Left", "row-reverse": "Right"},"group": "Display"},
-  "bgColor1": {"type": "colorpicker","label": "Background color 1","value": "#0000001a","group": "Display"},
-  "bgColor2": {"type": "colorpicker","label": "Background color 2","value": "rgba(0, 0, 0, 0.25)","group": "Display"},
+  "directionSM": {"type": "dropdown","label": "Direction","value": "row","options": {"row": "Row", "column": "Column"},"group": "Display SM"},
+  "alignitemsSM": {"type": "dropdown","label": "Align","value": "center","options": {"center": "Center", "flex-start": "Left (in Column, Top in Row)", "flex-end": "Right (in Column, Bottom in Row)"},"group": "Display SM"},
+  "iconUserAlign": {"type": "dropdown","label": "Align Icon","value": "row","options": {"row": "Left", "row-reverse": "Right"},"group": "Display SM"},
+  "bgColor1": {"type": "colorpicker","label": "Background color 1","value": "#0000001a","group": "Display SM"},
+  "bgColor2": {"type": "colorpicker","label": "Background color 2","value": "rgba(0, 0, 0, 0.25)","group": "Display SM"},
   
   "displayTwitter": {"type": "dropdown","label": "Show","value": "yes","options": {"yes": "Yes", "no": "No"},"group": "Twitter"},
   "groupTwitter": {"type": "number","label": "Group","value": 1,"min": 1,"max": 100,"step": 1,"group": "Twitter"},

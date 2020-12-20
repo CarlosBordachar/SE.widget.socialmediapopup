@@ -65,16 +65,12 @@
 }
 
 .main-container {
-    /* width: 500px; */
-    height: 80%;
+    height: auto;
 
-      /*overflow: hidden;
-      border: solid 1px black;
-      border-radius: 1rem;*/
-      /* box-shadow: 0px 0px 5px black; */
-      /* padding-bottom: 4px; */
-      /* height: 277px; */
-      display: flex; /* si lo comentamos, quedan en columnas los SocialMedia */
+    display: flex;
+    flex-direction: {{directionSM}}; /* COLUMN vs ROW */
+    justify-content: space-between; /*{{contentSM}};*/ /* CENTER VS FLEX-START, alinea a Derecha si la direction es ROW. Alinea Arriba si la direction es COLUMN. */
+    align-items: {{alignitemsSM}}; /* CENTER vs FLEX-START, alinea a Derecha si la direction es COLUMN.  Alinea Arriba si la direction es ROW. */
 }
 
 .path-follow {stroke: var(--colorFollow);}
@@ -131,20 +127,21 @@
     animation: scale-in-center 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1;
 }*/
 
-.svgiconHolder {
-    margin: 1rem {{spaceBetweenSM}} 1rem {{spaceBetweenSM}};
-  
+.svgiconHolder {  
+    margin: {{marginSM}};
   	/* BACKGROUND HOLDER COLOR */
-    /*background: linear-gradient(to bottom, {{bgColor1}}, {{bgColor2}});*/       /* https://uigradients.com/#Clouds */
-    /*border-radius: 1rem;*/
+    background: linear-gradient(to bottom, {{bgColor1}}, {{bgColor2}});       /* https://uigradients.com/#Clouds */
+    border-radius: 1rem;
+
+  	/* Size SM holder */
+    flex: 0 0 auto;
   
+  	/* This display affects Icon + Username*/
     display: flex;
-    /* flex-wrap: wrap; */
+    flex-direction: {{iconUserAlign}};
     justify-content: center;
     align-items: center;
-    /* flex: 0 0 600px; */
-    flex: auto;
-    /* margin: 20px 320px 20px 320px; */
+    /* flex-wrap: wrap; */
 }
 
 .svgicon {

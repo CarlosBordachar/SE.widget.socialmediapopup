@@ -68,178 +68,60 @@
     /* width: 500px; */
     height: 80%;
 
-      overflow: hidden;
+      /*overflow: hidden;
       border: solid 1px black;
-      border-radius: 1rem;
+      border-radius: 1rem;*/
       /* box-shadow: 0px 0px 5px black; */
       /* padding-bottom: 4px; */
       /* height: 277px; */
-      display: flex; /* en columnas los SocialMedia*/
+      display: flex; /* si lo comentamos, quedan en columnas los SocialMedia */
 }
 
-.path-follow {
-    stroke: var(--colorFollow);
-}
-
-.path-sub {
-    stroke: var(--colorSub);
-}
-
+.path-follow {stroke: var(--colorFollow);}
+.path-sub {stroke: var(--colorSub);}
 /* GAMER Socials */
-.path-discord {
-    fill: var(--colorDiscord, #7289da);
-}
-
-.path-facebook {
-    fill: var(--colorFacebook, #1877f2);
-}
-
-.path-instagram {
-    fill: var(--colorInstagram, url(#color-instagram-gradient));
-}
-
-.path-messenger {
-    fill: var(--colorMessenger, #00b2ff);
-}
-
-.path-tiktok {
-  fill: var(--colorTiktok, #000000);
-}
-
-.path-twitch {
-    fill: var(--colorTwitch, #6441a4);
-}
-
-.path-twitter {
-    fill: var(--colorTwitter, #1da1f2);
-}
-
-.path-youtube {
-    fill: var(--colorYoutube, #f00);
-}
-
-
+.path-discord {fill: var(--colorDiscord, #7289da);}
+.path-facebook {fill: var(--colorFacebook, #1877f2);}
+.path-instagram {fill: var(--colorInstagram, url(#color-instagram-gradient));}
+.path-messenger {fill: var(--colorMessenger, #00b2ff);}
+.path-tiktok {fill: var(--colorTiktok, #000000);}
+.path-twitch {fill: var(--colorTwitch, #6441a4);}
+.path-twitter {fill: var(--colorTwitter, #1da1f2);}
+.path-youtube {fill: var(--colorYoutube, #f00);}
 /* FORMAL Socials */
-.path-fiverr { 
-    fill: var(--colorFiverr, #1dbf73); 
-}
-
-.path-github {
-    fill: var(--colorGithub, #000000);
-}
-
-.path-gmail-old {
-    fill: var(--colorGmail, #d14836);
-}
-
-.path-linkedin {
-    fill: var(--colorLinkedin, #0077b5);
-}
-
-.path-skype {
-    fill: var(--colorSkype, #00aff0);
-}
-
-.path-slack {
-    fill: var(--colorSlack, #4a154b);
-}
-
-.path-telegram {
-    /*fill: var(--colorTelegram, #2ca5e0);*/
-    fill: var(--colorTelegram, url(#color-telegram-gradient));
-}
-
-.path-telegram-old {
-    fill: var(--colorTelegram, #2ca5e0);
-}
-
-.path-whatsapp {
-    fill: var(--colorWhatsapp, #25d366);
-}
-
-
+.path-fiverr {fill: var(--colorFiverr, #1dbf73);}
+.path-github {fill: var(--colorGithub, #000000);}
+.path-gmail-old {fill: var(--colorGmail, #d14836);}
+.path-linkedin {fill: var(--colorLinkedin, #0077b5);}
+.path-skype {fill: var(--colorSkype, #00aff0);}
+.path-slack {fill: var(--colorSlack, #4a154b);}
+.path-telegram {/*fill: var(--colorTelegram, #2ca5e0);*/fill: var(--colorTelegram, url(#color-telegram-gradient));}
+.path-telegram-old {fill: var(--colorTelegram, #2ca5e0);}
+.path-whatsapp {fill: var(--colorWhatsapp, #25d366);}
 /* BROWSERS */
-.path-brave {  
-    fill: var(--colorBrave, #fb542b); 
-}
-
-.path-googlechrome {  
-    fill: var(--colorGoogleChrome, #4285f4); 
-}
-
-.path-googlehangouts {  
-    fill: var(--colorGoogleHangouts, #0c9d58); 
-}
-
-.path-googledrive {  
-    fill: var(--colorGoogleDrive, #4285f4); 
-}
-
-.path-microsoftedge {  
-    fill: var(--colorMicrosoftEdge, #0078d7); 
-}
-
-.path-internetexplorer {  
-    fill: var(--colorInternetExplorer, #0076d6); 
-}
-
-.path-mozillafirefox {  
-    fill: var(--colorMozillaFirefox, #ff7139); 
-}
-
-.path-opera {  
-    fill: var(--colorOpera, #ff1b2d); 
-}
-
-.path-safari {  
-    fill: var(--colorSafari, #000000); 
-}
-
+.path-brave {fill: var(--colorBrave, #fb542b);}
+.path-googlechrome {fill: var(--colorGoogleChrome, #4285f4);}
+.path-googlehangouts {fill: var(--colorGoogleHangouts, #0c9d58);}
+.path-googledrive {fill: var(--colorGoogleDrive, #4285f4);}
+.path-microsoftedge {fill: var(--colorMicrosoftEdge, #0078d7);}
+.path-internetexplorer {fill: var(--colorInternetExplorer, #0076d6);}
+.path-mozillafirefox {fill: var(--colorMozillaFirefox, #ff7139);}
+.path-opera {fill: var(--colorOpera, #ff1b2d);}
+.path-safari { fill: var(--colorSafari, #000000);}
 /* PROFILES */
-.path-user {  
-    fill: var(--colorUser, #000000);
-}
-.path-user-o {  
-    fill: var(--colorUser-o, #000000);
-}
-.path-user-circle {  
-    fill: var(--colorUser-circle, #000000);
-}
-.path-user-circle-o {  
-    fill: var(--colorUser-circle-o, #000000);
-}
-.path-user2 {  
-    fill: var(--colorUser2, #000000);
-}
-.path-user3 {  
-    fill: var(--colorUser3, #000000);
-}
-.path-user4 {  
-    fill: var(--colorUser4, #000000);
-}
-.path-user5 {  
-    fill: var(--colorUser5, #000000);
-}
-
-
+.path-user {fill: var(--colorUser, #000000);}
+.path-user-o {fill: var(--colorUser-o, #000000);}
+.path-user-circle {fill: var(--colorUser-circle, #000000);}
+.path-user-circle-o {fill: var(--colorUser-circle-o, #000000);}
+.path-user2 {fill: var(--colorUser2, #000000);}
+.path-user3 {fill: var(--colorUser3, #000000);}
+.path-user4 {fill: var(--colorUser4, #000000);}
+.path-user5 {fill: var(--colorUser5, #000000);}
 /* COMMON */
-.path-sphere {  
-    fill: var(--colorSphere, #000000); 
-}
-
-.path-earth {  
-    fill: var(--colorEarth, #000000); 
-}
-
-.path-link {  
-    fill: var(--colorLink, #000000); 
-}
-
-.path-new-tab {  
-    fill: var(--colorNew-Tab, #000000); 
-}
-
-
+.path-sphere {fill: var(--colorSphere, #000000);}
+.path-earth {fill: var(--colorEarth, #000000);}
+.path-link {fill: var(--colorLink, #000000);}
+.path-new-tab {fill: var(--colorNew-Tab, #000000);}
 
 /*.svgicon {
     width: 100%;
@@ -251,8 +133,11 @@
 
 .svgiconHolder {
     margin: 1rem {{spaceBetweenSM}} 1rem {{spaceBetweenSM}};
-    background: linear-gradient(to bottom, {{bgColor1}}, {{bgColor2}}); /* https://uigradients.com/#Clouds */
-    border-radius: 1rem;
+  
+  	/* BACKGROUND HOLDER COLOR */
+    /*background: linear-gradient(to bottom, {{bgColor1}}, {{bgColor2}});*/       /* https://uigradients.com/#Clouds */
+    /*border-radius: 1rem;*/
+  
     display: flex;
     /* flex-wrap: wrap; */
     justify-content: center;

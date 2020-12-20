@@ -1,0 +1,567 @@
+:root {
+  --animationIconIN: roll-in-bottom;
+  --animationIconOUT: roll-out-bottom;
+  --animationIconMID: jello-horizontal/*rotate-scale-up-ver*//*rotate-vert-center*/;
+  --animationTextIN: focus-in-contract;
+  --animationTextOUT: blur-out-expand;
+
+  --colorFollow: #1956c6;
+  --colorSub: #673AB7;
+
+  /* GAMER Socials */
+  --colorDiscord: #7289da;
+  --colorFacebook: #1877f2;
+  /*--colorInstagram: #e4405f;*/
+  --colorTiktok: #000000;
+  --colorTwitch: #6441a4;
+  --colorTwitter: #1da1f2;
+  --colorYoutube: #f00;
+
+  /* FORMAL Socials*/
+  --colorFiverr: #1dbf73;
+  --colorGithub: #000000;
+  --colorGmail: #d14836;
+  --colorLinkedin: #0077b5;
+  --colorMessenger: #00b2ff;
+  --colorSkype: #00aff0;
+  --colorSlack: #4a154b;
+  --colorTelegram: #2ca5e0;
+  --colorWhatsapp: #25d366;
+
+  /* BROWSERS */
+  --colorBrave: #fb542b;
+  --colorGoogleChrome: #4285f4;
+  --colorGoogleHangouts: #0c9d58;
+  --colorGoogleDrive: #4285f4;
+  --colorMicrosoftEdge: #0078d7;
+  --colorInternetExplorer: #0076d6;
+  --colorMozillaFirefox: #ff7139;
+  --colorOpera: #ff1b2d;
+  --colorSafari: #333333;
+
+  /* PROFILES */
+  --colorUser: #333333;
+  --colorUser-o: #333333;
+  --colorUser-circle: #333333;
+  --colorUser-circle-o: #333333;
+  --colorUser2: #333333;
+  --colorUser3: #333333;
+  --colorUser4: #333333;
+  --colorUser5: #333333;
+
+  /* COMMON */
+  --colorSphere: #333333;
+  --colorEarth: #333333;
+  --colorLink: #333333;
+  --colorNew-Tab: #333333;
+
+}
+
+* {
+    font-family: '{{fontName}}', sans-serif;
+    color: {{fontColor}};
+    font-size: {{fontSize}};
+    /* overflow: hidden; */
+}
+
+.main-container {
+    /* width: 500px; */
+    height: 80%;
+
+      overflow: hidden;
+      border: solid 1px black;
+      border-radius: 1rem;
+      /* box-shadow: 0px 0px 5px black; */
+      /* padding-bottom: 4px; */
+      /* height: 277px; */
+      display: flex; /* en columnas los SocialMedia*/
+}
+
+.path-follow {
+    stroke: var(--colorFollow);
+}
+
+.path-sub {
+    stroke: var(--colorSub);
+}
+
+/* GAMER Socials */
+.path-discord {
+    fill: var(--colorDiscord, #7289da);
+}
+
+.path-facebook {
+    fill: var(--colorFacebook, #1877f2);
+}
+
+.path-instagram {
+    fill: var(--colorInstagram, url(#color-instagram-gradient));
+}
+
+.path-messenger {
+    fill: var(--colorMessenger, #00b2ff);
+}
+
+.path-tiktok {
+  fill: var(--colorTiktok, #000000);
+}
+
+.path-twitch {
+    fill: var(--colorTwitch, #6441a4);
+}
+
+.path-twitter {
+    fill: var(--colorTwitter, #1da1f2);
+}
+
+.path-youtube {
+    fill: var(--colorYoutube, #f00);
+}
+
+
+/* FORMAL Socials */
+.path-fiverr { 
+    fill: var(--colorFiverr, #1dbf73); 
+}
+
+.path-github {
+    fill: var(--colorGithub, #000000);
+}
+
+.path-gmail-old {
+    fill: var(--colorGmail, #d14836);
+}
+
+.path-linkedin {
+    fill: var(--colorLinkedin, #0077b5);
+}
+
+.path-skype {
+    fill: var(--colorSkype, #00aff0);
+}
+
+.path-slack {
+    fill: var(--colorSlack, #4a154b);
+}
+
+.path-telegram {
+    /*fill: var(--colorTelegram, #2ca5e0);*/
+    fill: var(--colorTelegram, url(#color-telegram-gradient));
+}
+
+.path-telegram-old {
+    fill: var(--colorTelegram, #2ca5e0);
+}
+
+.path-whatsapp {
+    fill: var(--colorWhatsapp, #25d366);
+}
+
+
+/* BROWSERS */
+.path-brave {  
+    fill: var(--colorBrave, #fb542b); 
+}
+
+.path-googlechrome {  
+    fill: var(--colorGoogleChrome, #4285f4); 
+}
+
+.path-googlehangouts {  
+    fill: var(--colorGoogleHangouts, #0c9d58); 
+}
+
+.path-googledrive {  
+    fill: var(--colorGoogleDrive, #4285f4); 
+}
+
+.path-microsoftedge {  
+    fill: var(--colorMicrosoftEdge, #0078d7); 
+}
+
+.path-internetexplorer {  
+    fill: var(--colorInternetExplorer, #0076d6); 
+}
+
+.path-mozillafirefox {  
+    fill: var(--colorMozillaFirefox, #ff7139); 
+}
+
+.path-opera {  
+    fill: var(--colorOpera, #ff1b2d); 
+}
+
+.path-safari {  
+    fill: var(--colorSafari, #000000); 
+}
+
+/* PROFILES */
+.path-user {  
+    fill: var(--colorUser, #000000);
+}
+.path-user-o {  
+    fill: var(--colorUser-o, #000000);
+}
+.path-user-circle {  
+    fill: var(--colorUser-circle, #000000);
+}
+.path-user-circle-o {  
+    fill: var(--colorUser-circle-o, #000000);
+}
+.path-user2 {  
+    fill: var(--colorUser2, #000000);
+}
+.path-user3 {  
+    fill: var(--colorUser3, #000000);
+}
+.path-user4 {  
+    fill: var(--colorUser4, #000000);
+}
+.path-user5 {  
+    fill: var(--colorUser5, #000000);
+}
+
+
+/* COMMON */
+.path-sphere {  
+    fill: var(--colorSphere, #000000); 
+}
+
+.path-earth {  
+    fill: var(--colorEarth, #000000); 
+}
+
+.path-link {  
+    fill: var(--colorLink, #000000); 
+}
+
+.path-new-tab {  
+    fill: var(--colorNew-Tab, #000000); 
+}
+
+
+
+/*.svgicon {
+    width: 100%;
+    height: 100%;
+    transform: scale(0);
+    opacity: 0.5;
+    animation: scale-in-center 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1;
+}*/
+
+.svgiconHolder {
+    margin: 1rem {{spaceBetweenSM}} 1rem {{spaceBetweenSM}};
+    background: linear-gradient(to bottom, {{bgColor1}}, {{bgColor2}}); /* https://uigradients.com/#Clouds */
+    border-radius: 1rem;
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    align-items: center;
+    /* flex: 0 0 600px; */
+    flex: auto;
+    /* margin: 20px 320px 20px 320px; */
+}
+
+.svgicon {
+    width: 5rem;
+    height: 5rem;
+    margin: 1rem 1rem 1rem 1rem;
+    opacity: 0;
+    /*animation: jello-horizontal 0.9s forwards;*/
+    animation: 
+       var(--animationIconIN) 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards
+      ,var(--animationIconMID) 0.9s /*cubic-bezier(0.455, 0.030, 0.515, 0.955)*/ /*2.5s*/ forwards
+      ,var(--animationIconOUT) 0.6s ease-in /*5s*/ forwards;
+    animation-delay: 
+       0s
+      ,calc(calc({{animationLength}}s - 1s) / 2)
+      ,calc({{animationLength}}s - 1s);
+}
+
+.svgiconUsername {
+    font-weight: 700;
+    font-size: 3rem;
+    margin: 0.75rem 1rem 1rem 1rem;
+    color: {{fontColor}};
+    text-shadow: {{shadowOffsetX}} {{shadowOffsetY}} {{shadowBlur}} {{fontColorShadow}};
+    opacity: 0;
+    animation: 
+       var(--animationTextIN) 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) /*0.7s*/ forwards
+      ,var(--animationTextOUT) 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) /*4.3s*/ forwards;
+    animation-delay: 
+       0.7s
+      ,calc(calc({{animationLength}}s - 1s) - 0.7s);
+}
+
+/*.svgicon-twitch {
+  animation-delay: 10s, 15s;
+}
+.svgiconUsername-twitch {
+  animation-delay: 10.7s, calc(15s - 0.7s);
+}*/
+
+/* ----------------------------------------------
+ * Generated by Animista on 2020-10-28 22:26:13
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+/**
+ * ----------------------------------------
+ * animation scale-in-center
+ * Use: animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+ * ----------------------------------------
+ */
+@keyframes scale-in-center {
+    0% {
+        transform: scale(0);
+        /*opacity: 1;*/
+    }
+
+    99% {
+        transform: scale(6);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(7);
+        display: none;
+    }
+}
+
+/**
+ * ----------------------------------------
+ * animation jello-horizontal
+ * Use: animation: jello-horizontal 0.9s both;
+ * ----------------------------------------
+ */
+@keyframes jello-horizontal {
+  0% {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+    opacity: 1;    
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+/**
+ * ----------------------------------------
+ * animation roll-in-left | IMG IN
+ * Use: animation: roll-in-left 0.6s ease-out both;
+ * ----------------------------------------
+ */
+@keyframes roll-in-left {
+  0% {
+    transform: translateX(-1000px) rotate(-540deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/**
+ * ----------------------------------------
+ * animation roll-in-right | IMG IN
+ * Use: animation: roll-in-right 0.6s ease-out both;
+ * ----------------------------------------
+ */
+@keyframes roll-in-right {
+  0% {
+    transform: translateX(1000px) rotate(540deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/**
+ * ----------------------------------------
+ * animation roll-in-top | IMG IN
+ * Use: animation: roll-in-top 0.6s ease-out both;
+ * ----------------------------------------
+ */
+@keyframes roll-in-top {
+  0% {
+    transform: translateY(-800px) rotate(-540deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/**
+ * ----------------------------------------
+ * animation roll-in-bottom | IMG IN
+ * Use: animation: roll-in-bottom 0.6s ease-out both;
+ * ----------------------------------------
+ */
+@keyframes roll-in-bottom {
+  0% {
+    transform: translateY(800px) rotate(540deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/**
+ * ----------------------------------------
+ * animation roll-out-left | IMG OUT
+ * Use: animation: roll-out-left 0.6s ease-in both;
+ * ----------------------------------------
+ */
+@keyframes roll-out-left {
+  0% {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-1000px) rotate(-540deg);
+    opacity: 0;
+  }
+}
+
+/**
+ * ----------------------------------------
+ * animation roll-out-right | IMG OUT
+ * Use: animation: roll-out-right 0.6s ease-in both;
+ * ----------------------------------------
+ */
+@keyframes roll-out-right {
+  0% {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(1000px) rotate(540deg);
+    opacity: 0;
+  }
+}
+
+/**
+ * ----------------------------------------
+ * animation roll-out-top | IMG OUT
+ * Use: animation: roll-out-top 0.6s ease-in both;
+ * ----------------------------------------
+ */
+@keyframes roll-out-top {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-800px) rotate(-540deg);
+    opacity: 0;
+  }
+}
+
+/**
+ * ----------------------------------------
+ * animation roll-out-bottom | IMG OUT
+ * Use: animation: roll-out-bottom 0.6s ease-in both;
+ * ----------------------------------------
+ */
+@keyframes roll-out-bottom {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(800px) rotate(540deg);
+    opacity: 0;
+  }
+}
+
+/**
+ * ----------------------------------------
+ * animation focus-in-contract | TEXT IN
+ * Use: animation: focus-in-contract 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+ * ----------------------------------------
+ */
+@keyframes focus-in-contract {
+  0% {
+    /*letter-spacing: 1em;*/
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+/**
+ * ----------------------------------------
+ * animation blur-out-expand | TEXT OUT
+ * Use: animation: blur-out-expand 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+ * ----------------------------------------
+ */
+@keyframes blur-out-expand {
+  0% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+  100% {
+    /*letter-spacing: 1em;*/
+    filter: blur(12px);
+    opacity: 0;
+  }
+}
+
+/**
+ * ----------------------------------------
+ * animation rotate-vert-center
+ * Use: animation: rotate-vert-center 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+ * ----------------------------------------
+ */
+@keyframes rotate-vert-center {
+  0% {
+      transform: rotateY(0);
+  }
+  100% {
+      transform: rotateY(360deg);
+  }
+}
+
+/**
+ * ----------------------------------------
+ * animation rotate-scale-up-ver
+ * Use: animation: rotate-scale-up 0.65s linear both;
+ * ----------------------------------------
+ */
+@keyframes rotate-scale-up-ver {
+  0% {
+      transform: scale(1) rotateY(0);
+  }
+  50% {
+      transform: scale(2) rotateY(180deg);
+  }
+  100% {
+      transform: scale(1) rotateY(360deg);
+  }
+}

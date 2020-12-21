@@ -131,7 +131,7 @@
     margin: {{marginSM}};
   	/* BACKGROUND HOLDER COLOR */
     background: linear-gradient(to bottom, {{bgColor1}}, {{bgColor2}});       /* https://uigradients.com/#Clouds */
-    border-radius: 1rem;
+  border-radius: {{borderRadius}};
 
   	/* Size SM holder */
     flex: 0 0 auto;

@@ -1,0 +1,75 @@
+{
+  "includeFollowers": {
+    "type": "dropdown",
+    "label": "Display followers:",
+    "value": "yes",
+    "options": {
+      "yes": "Yes",
+      "no": "No"
+    }
+  },
+  "colorFollow": {
+    "type": "colorpicker",
+    "label": "Follower color:",
+    "value": "#1956c6"
+  },
+  "includeSubs": {
+    "type": "dropdown",
+    "label": "Display subscribers:",
+    "value": "yes",
+    "options": {
+      "yes": "Yes",
+      "no": "No"
+    }
+  },
+  "colorSub": {
+    "type": "colorpicker",
+    "label": "Subscriber color:",
+    "value": "#673AB7"
+  },
+  "includeRedemptions": {
+    "type": "dropdown",
+    "label": "Display redemptions:",
+    "value": "no",
+    "options": {
+      "yes": "Yes",
+      "no": "No"
+    }
+  },
+  "includeHosts": {
+    "type": "dropdown",
+    "label": "Display hosts:",
+    "value": "no",
+    "options": {
+      "yes": "Yes",
+      "no": "No"
+    }
+  },
+  "includeRaids": {
+    "type": "dropdown",
+    "label": "Display raids:",
+    "value": "no",
+    "options": {
+      "yes": "Yes",
+      "no": "No"
+    }
+  },
+  "includeTips": {
+    "type": "dropdown",
+    "label": "Display tips:",
+    "value": "no",
+    "options": {
+      "yes": "Yes",
+      "no": "No"
+    }
+  },
+  "includeCheers": {
+    "type": "dropdown",
+    "label": "Display cheers:",
+    "value": "no",
+    "options": {
+      "yes": "Yes",
+      "no": "No"
+    }
+  }
+}

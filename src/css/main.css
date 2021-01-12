@@ -1,15 +1,15 @@
 :root {
-  --durationOnScreen: 205s;
+  --durationOnScreen: 5s;
 
-  --colorText: #333333;
+  --fontColor: #333333;
   --fontSize: 14px;
   
-  --colorTextShadow: #778899; /*lightslategrey color*/
+  --fontColorShadow: #778899; /*lightslategrey color*/
   --shadowOffsetX: 0.1rem;
   --shadowOffsetY: 0.1rem;
-  --shadowOffsetBlur: 0rem;
+  --shadowBlur: 0rem;
 
-  --spaceBtwSM: 6rem;
+  --spaceBetweenSM: 6rem;
 
   --bgColor1: #ffffff1a;
   --bgColor2: #ece9e666;
@@ -74,7 +74,7 @@
 
 * {
     font-family: 'Montserrat', sans-serif;
-    color: var(--colorText);
+    color: var(--fontColor);
     font-size: var(--fontSize);
     /* overflow: hidden; */
 }
@@ -257,7 +257,7 @@
 }*/
 
 .svgiconHolder {
-    margin: 1rem var(--spaceBtwSM) 1rem var(--spaceBtwSM);
+    margin: 1rem var(--spaceBetweenSM) 1rem var(--spaceBetweenSM);
     background: linear-gradient(to bottom, var(--bgColor1), var(--bgColor2)); /* https://uigradients.com/#Clouds */
     border-radius: 1rem;
     display: flex;
@@ -289,8 +289,8 @@
     font-weight: 700;
     font-size: 3.5rem;
     margin: 1rem 1rem 1rem 1rem;
-    color: var(--colorText);
-    text-shadow: var(--shadowOffsetX) var(--shadowOffsetY) var(--shadowOffsetBlur) var(--colorTextShadow);
+    color: var(--fontColor);
+    text-shadow: var(--shadowOffsetX) var(--shadowOffsetY) var(--shadowBlur) var(--fontColorShadow);
     opacity: 0;
     animation: 
        var(--animationTextIN) 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) /*0.7s*/ forwards
@@ -529,7 +529,7 @@
  */
 @keyframes blur-out-expand {
   0% {
-    filter: blur(0.01);
+    filter: blur(0px);
   }
   100% {
     /*letter-spacing: 1em;*/

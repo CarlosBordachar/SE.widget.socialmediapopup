@@ -1,5 +1,61 @@
-let includeFollowers = true,
-    includeSubs = true;
+let fieldData;
+
+//    animationLength = 6, /* Animation Length. 1 second more than --durationOnScreen */
+//    delayBetweenGroups = 2, /* Delay between display groups. */
+//    delayCycleRestart = 4, /* Delay after finishing displaying all groups, before start again */
+
+/*    displayTwitter,
+    groupTwitter = 1,
+    orderTwitter = 1,
+    userTwitter = "@MyTwitterName",
+    displayYoutube = true,
+    groupYoutube = 1,
+    orderYoutube = 2,
+    userYoutube = "/MyYoutubeChannel",
+    displayInstagram = false,
+    groupInstagram = 1,
+    orderInstagram = 3,
+    userInstagram = "@MyInstagramName",
+
+    displayTwitch = false,
+    groupTwitch = 2,
+    orderTwitch = 1,
+    userTwitch = "/MyTwitchName",
+    displayTiktok = false,
+    groupTiktok = 2,
+    orderTiktok = 2,
+    userTiktok = "@MyTiktokName",
+
+    displayProfile = false,
+    groupProfile = 3,
+    orderProfile = 1,
+    userProfile = "MyName",
+    displayLink = false,
+    groupLink = 3,
+    orderLink = 2,
+    userLink = "www.mydomain.com",
+
+    displayGmail = false,
+    groupGmail = 4,
+    orderGmail = 1,
+    userGmail = "MyMail@gmail.com",
+    displaySkype = false,
+    groupSkype = 4,
+    orderSkype = 2,
+    userSkype = "MySkypeName",
+    displayTelegram = false,
+    groupTelegram = 4,
+    orderTelegram = 3,
+    userTelegram = "@MyTelegramName",
+
+    displayLinkedin = false,
+    groupLinkedin = 5,
+    orderLinkedin = 1,
+    userLinkedin = "MyLinkedinName",
+    displayGithub = false,
+    groupGithub = 5,
+    orderGithub = 2,
+    userGithub = "@MyGithubName";*/
 
 let totalSM = 0;
 
@@ -45,36 +101,40 @@ window.addEventListener('onEventReceived', function (obj) {
 });
 
 window.addEventListener('onWidgetLoad', function (obj) {
+    fieldData = obj.detail.fieldData;
     loadWidget();
 });
 
 function getParameters() {
     var result = 
     {
-          animationSeg: 206 /* 1 second more than --durationOnScreen */
-        , delayBtwGroups: 2
-        , delayCycle: 4
+          animationSeg: fieldData.animationLength /* 1 second more than --durationOnScreen */
+        , delayBtwGroups: fieldData.delayBetweenGroups
+        , delayCycle: fieldData.delayCycleRestart
         , items: [
-             { icon: "twitter",   active: false, group: 1, order: 1, username: "@MyTwitterName" }
-            ,{ icon: "youtube",   active: true, group: 1, order: 2, username: "/MyYoutubeChannel" }
-            ,{ icon: "instagram", active: true, group: 1, order: 3, username: "@MyInstagramName" }
+             { icon: "twitter",   active: fieldData.displayTwitter == "yes", group: fieldData.groupTwitter, order: fieldData.orderTwitter, username: fieldData.userTwitter }
+            ,{ icon: "youtube",   active: fieldData.displayYoutube == "yes", group: fieldData.groupYoutube, order: fieldData.orderYoutube, username: fieldData.userYoutube }
+            ,{ icon: "instagram", active: fieldData.displayInstagram == "yes", group: fieldData.groupInstagram, order: fieldData.orderInstagram, username: fieldData.userInstagram }
 
-            ,{ icon: "twitch",    active: true, group: 2, order: 1, username: "/MyTwitchName" }
-            ,{ icon: "tiktok",    active: true, group: 2, order: 2, username: "@MyTiktokName" }
-            ,{ icon: "discord",   active: true, group: 2, order: 3, username: "@MyDiscordServer" }
+            ,{ icon: "twitch",    active: fieldData.displayTwitch == "yes", group: fieldData.groupTwitch, order: fieldData.orderTwitch, username: fieldData.userTwitch }
+            ,{ icon: "tiktok",    active: fieldData.displayTiktok == "yes", group: fieldData.groupTiktok, order: fieldData.orderTiktok, username: fieldData.userTiktok }
+            ,{ icon: "discord",   active: false, group: 2, order: 3, username: "@MyDiscordServer" }
 
             ,{ icon: "facebook",  active: false, group: 3, order: 1, username: "MyFacebookName" }
             ,{ icon: "messenger", active: false, group: 3, order: 2, username: "MyMessengerName" }
             
-            ,{ icon: "gmail",     active: true, group: 4, order: 1, username: "MyMail@gmail.com" }
-            ,{ icon: "skype",     active: true, group: 4, order: 2, username: "MySkypeName" }
+            ,{ icon: "profile",   active: fieldData.displayProfile == "yes", group: fieldData.groupProfile, order: fieldData.orderProfile, username: fieldData.userProfile }
+            ,{ icon: "link",      active: fieldData.displayLink == "yes", group: fieldData.groupLink, order: fieldData.orderLink, username: fieldData.userLink }
 
-            ,{ icon: "linkedin",  active: true, group: 5, order: 1, username: "MyLinkedinName" }
-            ,{ icon: "github",    active: true, group: 5, order: 2, username: "@MyGithubName" }
-            ,{ icon: "slack",     active: true, group: 5, order: 3, username: "MySlackName" }
+            ,{ icon: "gmail",     active: fieldData.displayGmail == "yes", group: fieldData.groupGmail, order: fieldData.orderGmail, username: fieldData.userGmail }
+            ,{ icon: "skype",     active: fieldData.displaySkype == "yes", group: fieldData.groupSkype, order: fieldData.orderSkype, username: fieldData.userSkype }
+
+            ,{ icon: "linkedin",  active: fieldData.displayLinkedin == "yes", group: fieldData.groupLinkedin, order: fieldData.orderLinkedin, username: fieldData.userLinkedin }
+            ,{ icon: "github",    active: fieldData.displayGithub == "yes", group: fieldData.groupGithub, order: fieldData.orderGithub, username: fieldData.userGithub }
+            ,{ icon: "slack",     active: false, group: 5, order: 3, username: "MySlackName" }
             
-            ,{ icon: "telegram",  active: true, group: 6, order: 1, username: "@MyTelegramName" }
-            ,{ icon: "whatsapp",  active: true, group: 6, order: 2, username: "(+My)-Whatsapp-Phone" }
+            ,{ icon: "telegram",  active: fieldData.displayTelegram == "yes", group: fieldData.groupTelegram, order: fieldData.orderTelegram, username: fieldData.userTelegram }
+            ,{ icon: "whatsapp",  active: false, group: 6, order: 2, username: "(+My)-Whatsapp-Phone" }
             
             ,{ icon: "follow",    active: false, group: 7, order: 1, username: "Followers ###" }
             ,{ icon: "sub",       active: false, group: 7, order: 2, username: "Subs ###" }]
